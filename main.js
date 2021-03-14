@@ -1,4 +1,4 @@
-const topCVPrint = () => {
+const topCVCustomizer = () => {
 
     var style = $(`
         <style>
@@ -41,6 +41,9 @@ const topCVPrint = () => {
     $('.contact-item-label')[3].innerText = 'EMAIL'
     $('.contact-item-label')[4].innerText = 'ADDRESS'
     $('.contact-item-label')[5].innerText = 'WEBSITE'
+    const websiteLink = $('#cvo-profile-website')[0].innerText;
+    const formatedWebsiteLink = websiteLink.startsWith('http') ? websiteLink : 'http://' + websiteLink;
+    $('#cvo-profile-website')[0].innerHTML = '<a href = ' + formatedWebsiteLink + '>' + websiteLink + '</a>'
 
 
     let skills = $('#cvo-additional-information-details').contents().filter(function() {return this.nodeType == Node.TEXT_NODE;});
@@ -59,6 +62,6 @@ const topCVPrint = () => {
     document.getElementById('cvo-additional-information-details').innerHTML = '<div>' + skillsHTML + '</div>';
 }
 
-topCVPrint
+topCVCustomizer
 
-topCVPrint();
+topCVCustomizer();
